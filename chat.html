@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoleCraft — Modern Shoes</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card: #111827;
+      --accent: #f97316;
+      --accent-soft: rgba(249,115,22,0.15);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --radius: 20px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top, #111827, #020617);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ================= HEADER ================= */
+    header {
+      padding: 4rem 1rem 3rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    header h1 span { color: var(--accent); }
+
+    header p {
+      max-width: 650px;
+      margin: 1rem auto 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    /* ================= NAV ================= */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(2,6,23,0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #1f2937;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 0.5px;
+    }
+
+    .logo span { color: var(--accent); }
+
+    .nav-actions input {
+      padding: 0.6rem 1rem;
+      border-radius: 999px;
+      border: none;
+      outline: none;
+      background: #020617;
+      color: var(--text);
+      width: 220px;
+    }
+
+    .nav-actions input::placeholder { color: var(--muted); }
+
+    /* ================= SECTIONS ================= */
+    section { padding: 4rem 1rem; }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* ================= FILTERS ================= */
+    .filters {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+      justify-content: center;
+    }
+
+    .filters button {
+      padding: 0.55rem 1.3rem;
+      border-radius: 999px;
+      border: 1px solid #1f2937;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .filters button.active,
+    .filters button:hover {
+      background: var(--accent);
+      color: #020617;
+      border-color: var(--accent);
+    }
+
+    /* ================= GRID ================= */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .card {
+      background: linear-gradient(180deg, #020617, var(--card));
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid #1f2937;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 45px rgba(0,0,0,0.45);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      background: #020617;
+    }
+
+    .card-body {
+      padding: 1.3rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      border-top: 1px solid #1f2937;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<header>
+  <h1>Sole<span>Craft</span></h1>
+  <p>Classic craftsmanship meets modern street culture. Every shoe you see here is powered by clean JSON data — scalable, sharp, and future-ready.</p>
+</header>
+
+<!-- ================= NAV ================= -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Sole<span>Craft</span></div>
+    <div class="nav-actions">
+      <input type="text" id="search" placeholder="Search shoes…" />
+    </div>
+  </div>
+</nav>
+
+<!-- ================= PRODUCTS ================= -->
+<section>
+  <div class="container">
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="productGrid"></div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  Built with discipline: HTML • CSS • JavaScript — Shoes powered by JSON.
+</footer>
+
+<script>
+  // ================= SHOES DATA (JSON FORMAT) =================
+  const shoes = [
+    {
+      "id": 1,
+      "name": "Urban Runner",
+      "category": "Running",
+      "description": "Lightweight performance shoes for city sprints.",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff"
+    },
+    {
+      "id": 2,
+      "name": "Classic Street",
+      "category": "Casual",
+      "description": "Timeless streetwear sneakers with modern comfort.",
+      "image": "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77"
+    },
+    {
+      "id": 3,
+      "name": "Aero Flex",
+      "category": "Sports",
+      "description": "Breathable sports shoes built for endurance.",
+      "image": "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519"
+    },
+    {
+      "id": 4,
+      "name": "Heritage Leather",
+      "category": "Formal",
+      "description": "Old-school leather craftsmanship, polished for today.",
+      "image": "https://images.unsplash.com/photo-1528701800489-20be3c2eaab1"
+    },
+    {
+      "id": 5,
+      "name": "Street High-Top",
+      "category": "Casual",
+      "description": "Bold high-top design with street attitude.",
+      "image": "https://images.unsplash.com/photo-1606813909359-90bdfd4f9340"
+    },
+    {
+      "id": 6,
+      "name": "Velocity Pro",
+      "category": "Running",
+      "description": "Engineered for speed and daily training.",
+      "image": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a"
+    }
+  ];
+
+  const grid = document.getElementById('productGrid');
+  const search = document.getElementById('search');
+  const filters = document.getElementById('filters');
+
+  let activeCategory = 'All';
+
+  function renderProducts() {
+    const query = search.value.toLowerCase();
+    grid.innerHTML = '';
+
+    shoes
+      .filter(s => activeCategory === 'All' || s.category === activeCategory)
+      .filter(s => s.name.toLowerCase().includes(query))
+      .forEach(shoe => {
+        const card = document.createElement('div');
+        card.className = 'card';
+
+        card.innerHTML = `
+          <img src="${shoe.image}" alt="${shoe.name}">
+          <div class="card-body">
+            <span class="badge">${shoe.category}</span>
+            <h3>${shoe.name}</h3>
+            <p>${shoe.description}</p>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+  }
+
+  function renderFilters() {
+    const categories = ['All', ...new Set(shoes.map(s => s.category))];
+    filters.innerHTML = '';
+
+    categories.forEach(cat => {
+      const btn = document.createElement('button');
+      btn.textContent = cat;
+      if (cat === activeCategory) btn.classList.add('active');
+
+      btn.onclick = () => {
+        activeCategory = cat;
+        renderFilters();
+        renderProducts();
+      };
+
+      filters.appendChild(btn);
+    });
+  }
+
+  search.addEventListener('input', renderProducts);
+
+  renderFilters();
+  renderProducts();
+</script>
+
+</body>
+</html>
