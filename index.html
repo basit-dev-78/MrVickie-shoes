@@ -445,26 +445,8 @@
             -webkit-box-orient: vertical;
         }
 
-        .product-colors {
-            display: flex;
-            gap: 6px;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-        }
-
-        .color-option {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            border: 2px solid white;
-            box-shadow: 0 0 0 1px var(--light-gray);
-            cursor: pointer;
-        }
-
-        .color-option.active {
-            box-shadow: 0 0 0 2px var(--primary);
-        }
-
+        /* REMOVED: product-colors section */
+        
         .product-bottom {
             display: flex;
             justify-content: space-between;
@@ -535,7 +517,7 @@
             font-size: 0.8rem;
         }
 
-        /* Testimonials */
+        /* Testimonials - UPDATED WITH PAKISTANI NAMES */
         .testimonials {
             padding: 60px 0;
             background-color: #f9f9f9;
@@ -575,12 +557,12 @@
             border-radius: 50%;
             overflow: hidden;
             flex-shrink: 0;
-        }
-
-        .author-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-weight: bold;
         }
 
         .author-info h4 {
@@ -948,7 +930,6 @@
                         <li><a href="#categories">Categories</a></li>
                         <li><a href="#products">Collections</a></li>
                         <li><a href="#featured">Why Us</a></li>
-                        <li><a href="#testimonials">Reviews</a></li>
                     </ul>
                 </nav>
             </div>
@@ -1049,63 +1030,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>What Our Customers Say</h2>
-                <p>Real reviews from people who love our footwear</p>
-            </div>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        "The most comfortable sneakers I've ever owned! The quality is exceptional and they look fantastic with everything."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="https://images.unsplash.com/photo-1494790108755-2616b786d4d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Sarah Johnson">
-                        </div>
-                        <div class="author-info">
-                            <h4>Sarah Johnson</h4>
-                            <p>Fashion Blogger</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        "As a runner, I'm very particular about my shoes. These provide the perfect balance of cushioning and support for my daily runs."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Michael Chen">
-                        </div>
-                        <div class="author-info">
-                            <h4>Michael Chen</h4>
-                            <p>Marathon Runner</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        "The formal shoes I purchased are not only stylish but incredibly comfortable for all-day wear at the office. Highly recommended!"
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Jessica Williams">
-                        </div>
-                        <div class="author-info">
-                            <h4>Jessica Williams</h4>
-                            <p>Marketing Executive</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
     <!-- Newsletter Section -->
     <section class="newsletter-section">
@@ -1158,8 +1083,8 @@
                 <div class="footer-column">
                     <h3>Contact Info</h3>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 123 Fashion Street, NY</li>
-                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 123 Fashion Street, Karachi</li>
+                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> +92 300 1234567</li>
                         <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> info@mr-vickie.com</li>
                     </ul>
                 </div>
@@ -1209,7 +1134,6 @@
                     "rating": 4.8,
                     "image": "./assets/WhatsApp Image 2026-01-13 at 8.52.34 PM (1).jpeg",
                     "description": "Revolutionary cushioning with the largest Air unit yet",
-                    "colors": ["#000000", "#ff3e6c", "#6c63ff", "#ffffff"],
                     "badge": "Bestseller"
                 },
                 {
@@ -1221,7 +1145,6 @@
                     "rating": 4.9,
                     "image": "./assets/WhatsApp Image 2026-01-13 at 8.52.34 PM.jpeg",
                     "description": "Maximum energy return with responsive cushioning",
-                    "colors": ["#000000", "#ffffff", "#0a5cff"],
                     "badge": "New"
                 },
                 {
@@ -1233,7 +1156,6 @@
                     "rating": 4.7,
                     "image": "./assets/WhatsApp Image 2026-01-13 at 8.52.38 PM (1).jpeg",
                     "description": "Timeless white sneakers for a clean, versatile look",
-                    "colors": ["#ffffff", "#f0f0f0"],
                     "badge": "Sale"
                 },
                 {
@@ -1245,7 +1167,6 @@
                     "rating": 4.6,
                     "image": "./assets/WhatsApp Image 2026-01-13 at 8.52.44 PM.jpeg",
                     "description": "Handcrafted leather oxfords for formal occasions",
-                    "colors": ["#3d2b1f", "#000000", "#2c1810"],
                     "badge": "Premium"
                 },
                 {
@@ -1257,7 +1178,6 @@
                     "rating": 4.5,
                     "image": "./assets/WhatsApp Image 2026-01-13 at 8.52.48 PM (1).jpeg",
                     "description": "Bold design with chunky silhouette and retro vibes",
-                    "colors": ["#ff3e6c", "#6c63ff", "#000000"],
                     "badge": "Trending"
                 },
                 {
@@ -1269,7 +1189,6 @@
                     "rating": 4.7,
                     "image": "./assets/WhatsApp Image 2026-01-13 at 8.52.49 PM (3).jpeg",
                     "description": "Designed to help reduce injury and keep you running",
-                    "colors": ["#000000", "#ffffff", "#6c63ff"],
                     "badge": null
                 },
                 {
@@ -1281,7 +1200,6 @@
                     "rating": 4.4,
                     "image": "./assets/WhatsApp Image 2026-01-13 at 8.53.48 PM.jpeg",
                     "description": "Easy-to-wear slip-ons with comfortable canvas upper",
-                    "colors": ["#3d2b1f", "#000000", "#6c63ff"],
                     "badge": "Sale"
                 },
                 {
@@ -1293,7 +1211,6 @@
                     "rating": 4.8,
                     "image": "./assets/WhatsApp Image 2026-01-13 at 8.53.41 PM.jpeg",
                     "description": "Sophisticated leather loafers with tassel detail",
-                    "colors": ["#3d2b1f", "#000000"],
                     "badge": "New"
                 }
             ]
@@ -1381,9 +1298,6 @@
                 productCard.className = 'product-card';
                 productCard.setAttribute('data-category', product.category);
                 
-                // Generate color options HTML
-                const colors = generateColorOptions(product.colors);
-                
                 // Determine badge class
                 let badgeClass = '';
                 if (product.badge === 'Sale') badgeClass = 'sale';
@@ -1397,13 +1311,10 @@
                     <div class="product-info">
                         <div class="product-category">${product.category.charAt(0).toUpperCase() + product.category.slice(1)}</div>
                         <h3 class="product-title">${product.name}</h3>
-                        <div class="product-colors">
-                            ${colors}
-                        </div>
                         <div class="product-bottom">
                             <div class="product-price">
-                                ${product.price.toFixed()}
-                                ${product.oldPrice ? `<span class="old-price">${product.oldPrice.toFixed()}</span>` : ''}
+                                Rs ${product.price.toFixed()}
+                                ${product.oldPrice ? `<span class="old-price">Rs ${product.oldPrice.toFixed()}</span>` : ''}
                             </div>
                         </div>
                     </div>
@@ -1416,15 +1327,6 @@
                     showNotification(`Viewing details for ${product.name}`);
                 });
             });
-        }
-        
-        // Generate color options HTML
-        function generateColorOptions(colors) {
-            let html = '';
-            colors.forEach((color, index) => {
-                html += `<div class="color-option ${index === 0 ? 'active' : ''}" style="background-color: ${color};" title="Color option"></div>`;
-            });
-            return html;
         }
         
         // Filter products by category
@@ -1605,6 +1507,3 @@
     </script>
 </body>
 </html>
-
-
-<!-- update v4 -->
